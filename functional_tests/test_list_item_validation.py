@@ -54,12 +54,12 @@ class ItemValidationTest(FunctionalTest):
         self.browser.get(self.live_server_url)
         self.get_item_input_box().send_keys('Buy wellies')
         self.get_item_input_box().send_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table('1. Buy wellies')
-
+        self.wait_for_row_in_list_table('1: Buy wellies')
+    
         # She accidentally tries to enter a duplicate item
         self.get_item_input_box().send_keys('Buy wellies')
         self.get_item_input_box().send_keys(Keys.ENTER)
-
+    
         # She sees a helpful error message
         self.wait_for(lambda: self.assertEqual(
             self.browser.find_element_by_css_selector('.has-error').text,

@@ -29,14 +29,13 @@ class ItemModelTest(TestCase):
         with self.assertRaises(ValidationError):
             item = Item(list=list_, text='bla')
             item.full_clean()
-            # item.save()
 
     def test_CAN_save_same_item_to_different_lists(self):
         list1 = List.objects.create()
         list2 = List.objects.create()
         Item.objects.create(list=list1, text='bla')
         item = Item(list=list2, text='bla')
-        item.full_clean() # should not raise
+        item.full_clean()  # should not raise
 
     def test_list_ordering(self):
         list1 = List.objects.create()
