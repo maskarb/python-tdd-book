@@ -8,3 +8,4 @@ __pycache__/
 /.venv/
 /static/
 .env
+functional_tests/screendumps
